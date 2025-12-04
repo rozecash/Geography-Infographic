@@ -58,14 +58,14 @@ const DetailSection = ({ title, subtitle, content, image, align = 'left', icon: 
   const [ref, isVisible] = useOnScreen({ threshold: 0.2 });
 
   return (
-    <div ref={ref} className={`min-h-[80vh] flex flex-col md:flex-row items-center gap-12 py-24 ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
+    <div ref={ref} className={`min-h-[60vh] flex flex-col md:flex-row items-center gap-12 py-16 ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
       {/* Text Content */}
       <div className={`flex-1 space-y-6 ${align === 'right' ? 'md:order-2' : ''}`}>
         <div className="inline-flex items-center gap-2 text-blue-400 font-bold uppercase tracking-widest text-sm">
           {Icon && <Icon size={16} />}
           <span>{subtitle}</span>
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">{title}</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">{title}</h2>
         <div className="w-20 h-1 bg-blue-500 rounded-full" />
         <p className="text-lg text-gray-300 leading-relaxed">
           {content}
@@ -74,7 +74,7 @@ const DetailSection = ({ title, subtitle, content, image, align = 'left', icon: 
 
       {/* Image Content */}
       <div className={`flex-1 w-full ${align === 'right' ? 'md:order-1' : ''}`}>
-        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group max-h-[500px]">
           <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
           <img 
             src={image} 
@@ -123,7 +123,7 @@ const App = () => {
         </header>
 
         {/* 1. OVERVIEW: Bento Grid Layout */}
-        <div className="mb-32">
+        <div className="mb-24">
           <h2 className="text-2xl font-bold text-white mb-8 border-l-4 border-blue-500 pl-4">Quick Overview</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]">
             
@@ -242,7 +242,7 @@ const App = () => {
         </div>
 
         {/* 2. DEEP DIVE SECTIONS */}
-        <div className="space-y-32 pb-32">
+        <div className="space-y-24 pb-24">
           
           <div className="text-center">
             <span className="px-4 py-2 rounded-full border border-white/20 text-sm tracking-wider uppercase bg-white/5">Detailed Analysis</span>
@@ -250,38 +250,38 @@ const App = () => {
 
           {/* Section 1: Formation */}
           <DetailSection 
-            title="The Legacy of Glaciers"
-            subtitle="Formation & Hydrography"
+            title="Glaciation & Landscape"
+            subtitle="Formation Process"
             icon={Snowflake}
             align="left"
             image="/hydro.jpg"
-            content="Glaciation was the most important process in developing the current landscape. The massive glaciers that retreated from their original places created big ancient lakes through their melting process. The glaciers left behind thick deposits of sand and clay at the lake bottoms which formed the present flat plains and rolling hills. This complex drainage pattern feeds into the St. Lawrence River."
+            content="Glaciation was the most important process in developing the current landscape. The massive glaciers that retreated from their original places created big ancient lakes through their melting process. The glaciers left behind thick deposits of sand and clay at the lake bottoms which formed the present flat plains and rolling hills."
           />
 
           {/* Section 2: Geology */}
           <DetailSection 
-            title="A Sedimentary Foundation"
-            subtitle="Geology"
+            title="Geological Structure"
+            subtitle="Bedrock & Soil"
             icon={Layers}
             align="right"
             image="/rocks.png"
-            content="This region is primarily made of sedimentary rock, formed during the Paleozoic era. The flat clay and sand plains deposited by glaciers cover these deep layers of ancient sedimentary bedrock. These rocks are rich in minerals and provide the stable foundation for the region's massive urban development and agriculture."
+            content="This region is primarily made of sedimentary rock. The flat clay and sand plains deposited by glaciers cover these deep layers of ancient sedimentary bedrock."
           />
 
           {/* Section 3: Population */}
           <DetailSection 
-            title="Canada's Demographic Heart"
-            subtitle="Population & Settlement"
+            title="Population & Settlement"
+            subtitle="Human Geography"
             icon={Users}
             align="left"
             image="/population.png"
-            content="The region contains approximately 60% of Canada's population because it serves as the home for many Canadians. The southernmost part of Canada features flat terrain which enables builders to construct major cities including Toronto and Montreal and establish vital transportation networks through roads and railways. The first settlers arrived in this region because of its fertile agricultural soil which they used to establish their settlement."
+            content="Yes, the region contains approximately 60% of Canada's population because it serves as the home for many Canadians. The southernmost part of Canada features flat terrain which enables builders to construct major cities including Toronto and Montreal and establish vital transportation networks through roads and railways. The first settlers arrived in this region because of its fertile agricultural soil which they used to establish their settlement."
           />
 
         </div>
 
         {/* Footer */}
-        <footer className="mt-20 border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
+        <footer className="mt-12 border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
           <p>Designed for CGC1W • December 2025</p>
         </footer>
 
